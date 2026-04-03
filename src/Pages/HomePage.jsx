@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+import HomePageImage from "../Assets/Images/homePageMainImage.png"
 import HomeLayout from "../Layouts/HomeLayout";
 
 function HomePage() {
@@ -12,6 +15,24 @@ function HomePage() {
                     <p className="text-xl text-gray-200">
                         We have a large library of courses taught by highly skilled and qualified faculties at a very affordable cost.
                     </p>
+
+                    <div className="space-x-6">
+                        <Link to="/courses">
+                            <button className="bg-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300 ">
+                                Explore Courses
+                            </button>
+                        </Link>
+
+                        <Link to="/contact">
+                            <button className="border border-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300 ">
+                                Contact Us
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="w-1/2 flex items-center justify-center">
+                    <img src={HomePageImage} alt="homepage image" />
                 </div>
             </div>
         </HomeLayout>
