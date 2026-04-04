@@ -83,7 +83,7 @@ function AboutUs() {
                 thinking provides knowledge, knowledge makes you great."
               </p>
               {/* for personality name */}
-              <h3 className="text-2xl font-semibold">A. P. J. Abdul Kalam</h3>
+              <h3 className="text-2xl font-semibold">A.P.J. Abdul Kalam</h3>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a href="#slide1" className="btn btn-circle">
