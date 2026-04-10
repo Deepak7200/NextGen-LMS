@@ -113,16 +113,6 @@ const razorpaySlice = createSlice({
         state.finalMonths = action?.payload?.finalMonths;
         state.monthlySalesRecord = action?.payload?.monthlySalesRecord;
       })
-      .addCase(cancelCourseBundle.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(cancelCourseBundle.fulfilled, (state) => {
-        state.loading = false;   // ✅ MUST
-        state.isCancelled = true; // optional but useful
-      })
-      .addCase(cancelCourseBundle.rejected, (state) => {
-        state.loading = false;   // ✅ MUST
-      });
   },
 });
 
