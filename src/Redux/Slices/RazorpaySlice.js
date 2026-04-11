@@ -116,5 +116,5 @@ const razorpaySlice = createSlice({
   },
 });
 
-// export const {} = razorpaySlice.actions;
-export default razorpaySlice.reducer;
+const razorpaySliceReducer = razorpaySlice.actions;
+export default razorpaySliceReducer;
