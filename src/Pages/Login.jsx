@@ -85,16 +85,6 @@ function Login() {
             />
           </div>
 
-          {/* guest account access */}
-          {/* <div
-            onClick={() =>
-              setLoginData({ email: "test@gmail.com", password: "Test@123" })
-            }
-            className="text-center link text-accent cursor-pointer"
-          >
-            Guest Login
-          </div> */}
-
           <button
             className="w-full bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
@@ -102,11 +92,11 @@ function Login() {
             Login
           </button>
 
-          {/* <Link to={"/forgetpassword"}>
+          <Link to={"/forgetpassword"}>
             <p className="text-center link text-accent cursor-pointer">
               Forget Password
             </p>
-          </Link> */}
+          </Link>
 
           <p className="text-center">
             Don't have an account ?{" "}
