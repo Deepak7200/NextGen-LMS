@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { PiEyeBold, PiEyeClosedBold} from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,6 +11,9 @@ import { changePassword } from "../../Redux/Slices/Authorization";
 const ChangePassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const [userPassword, setUserPassword] = useState({
     oldPassword: "",
@@ -73,32 +77,50 @@ const ChangePassword = () => {
             <label className="text-lg font-semibold" htmlFor="oldPassword">
               Old Password
             </label>
+            <div className="relative">
             <input
               required
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="oldPassword"
               id="oldPassword"
               placeholder="Enter your old password"
-              className="bg-transparent px-2 py-1 border"
+              className="bg-transparent px-2 py-1 border w-full pr-10"
               value={userPassword.oldPassword}
               onChange={handlePasswordChange}
             />
+            {userPassword.oldPassword && <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 top-1/2 -translate-y-1/2"
+              >
+                {showPassword ? <PiEyeBold /> : <PiEyeClosedBold />}
+              </button>}
+            </div>
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="text-lg font-semibold" htmlFor="newPassword">
               New Password
             </label>
-            <input
-              required
-              type="password"
-              name="newPassword"
-              id="newPassword"
-              placeholder="Enter your new password"
-              className="bg-transparent px-2 py-1 border"
-              value={userPassword.newPassword}
-              onChange={handlePasswordChange}
-            />
+            <div className="relative">
+              <input
+                required
+                type={showPassword2 ? "text" : "password"}
+                name="newPassword"
+                id="newPassword"
+                placeholder="Enter your new password"
+                className="bg-transparent px-2 py-1 border w-full pr-10"
+                value={userPassword.newPassword}
+                onChange={handlePasswordChange}
+              />
+              {userPassword.newPassword && <button
+                type="button"
+                onClick={() => setShowPassword2(!showPassword2)}
+                className="absolute right-2 top-1/2 -translate-y-1/2"
+              >
+                {showPassword2 ? <PiEyeBold /> : <PiEyeClosedBold />}
+              </button>}
+            </div>
           </div>
 
           <Link to={"/user/profile"}>

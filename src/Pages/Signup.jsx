@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsPersonCircle } from "react-icons/bs";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { PiEyeBold, PiEyeClosedBold} from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -193,7 +193,7 @@ function Signup() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-2 top-1/2 -translate-y-1/2"
               >
-                {showPassword ? <FiEye /> : <FiEyeOff />}
+                {showPassword ? <PiEyeBold /> : <PiEyeClosedBold />}
               </button>}
             </div>
           </div>

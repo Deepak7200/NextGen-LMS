@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { PiEyeBold, PiEyeClosedBold} from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -83,7 +83,7 @@ function Login() {
           name="password"
           id="password"
           placeholder="Enter your password"
-          className="bg-transparent px-2 py-1 border w-full pr-10"
+          className="bg-transparent px-2 py-1 border w-full "
           value={loginData.password}
           onChange={handleUserInput}
         />
@@ -93,7 +93,7 @@ function Login() {
           onClick={() => setShowPassword(!showPassword)}
           className="absolute right-2 top-1/2 -translate-y-1/2"
         >
-          {showPassword ? <FiEye /> : <FiEyeOff />}
+          {showPassword ? <PiEyeBold/> : <PiEyeClosedBold/>}
         </button>}
       </div>
     </div>
