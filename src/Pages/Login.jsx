@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,6 +10,7 @@ import { login } from "../Redux/Slices/Authorization";
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -70,20 +72,31 @@ function Login() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-lg font-semibold" htmlFor="password">
-              Password
-            </label>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter your password"
-              className="bg-transparent px-2 py-1 border"
-              value={loginData.password}
-              onChange={handleUserInput}
-            />
-          </div>
+      <label className="text-lg font-semibold" htmlFor="password">
+        Password
+      </label>
+
+      <div className="relative">
+        <input
+          required
+          type={showPassword ? "text" : "password"}
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          className="bg-transparent px-2 py-1 border w-full pr-10"
+          value={loginData.password}
+          onChange={handleUserInput}
+        />
+
+        {loginData.password && <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-2 top-1/2 -translate-y-1/2"
+        >
+          {showPassword ? <FiEye /> : <FiEyeOff />}
+        </button>}
+      </div>
+    </div>
 
           <button
             className="w-full bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"

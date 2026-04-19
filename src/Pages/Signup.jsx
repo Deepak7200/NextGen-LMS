@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsPersonCircle } from "react-icons/bs";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -13,6 +14,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const [previewImage, setImagePreview] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
   // for user input
   const [signupData, setSignupData] = useState({
@@ -174,17 +176,26 @@ function Signup() {
 
           {/* input for password */}
           <div className="flex flex-col gap-1">
-            <label className="font-semibold" htmlFor="password"> Password </label>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter your password"
-              className="bg-transparent px-2 py-1 border"
-              onChange={handleUserInput}
-              value={signupData.password}
-            />
+          <label className="font-semibold" htmlFor="password"> Password </label>
+            <div className="relative">
+              <input
+                required
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+                className="bg-transparent px-2 py-1 border w-full pr-10"
+                onChange={handleUserInput}
+                value={signupData.password}
+              />
+              {signupData.password && <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 top-1/2 -translate-y-1/2"
+              >
+                {showPassword ? <FiEye /> : <FiEyeOff />}
+              </button>}
+            </div>
           </div>
 
           {/* registration button */}
