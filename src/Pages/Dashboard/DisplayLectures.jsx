@@ -37,11 +37,12 @@ const DisplayLectures = () => {
 
   return (
     <HomeLayout>
-      <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-white mx-[5%]">
+      <div className="flex flex-col gap-6 items-center justify-center min-h-[90vh] py-10 text-white mx-[5%]">
         {/* displaying the course name */}
 
-        <h1 className="text-center text-2xl font-semibold text-yellow-500">
-          Course Name : {courseDetails?.title}
+        <h1 className="text-center text-2xl font-semibold flex justify-center gap-2">
+          <span className="text-yellow-500">Course Name :</span>
+          <span>{courseDetails?.title}</span>
         </h1>
 
         <div>
@@ -78,12 +79,12 @@ const DisplayLectures = () => {
             ></video>
             <div>
               <h1>
-                <span className="text-yellow-500">Title : </span>
-                {lectures && lectures[currentVideoIndex]?.title}
+                <span className="text-yellow-500 font-semibold">Title : </span>
+                <span className="font-semibold">{lectures && lectures[currentVideoIndex]?.title}</span>
               </h1>
               <p>
                 {" "}
-                <span className="text-yellow-500 line-clamp-4">
+                <span className="text-yellow-500 font-semibold line-clamp-4">
                   Description :{" "}
                 </span>
                 {lectures && lectures[currentVideoIndex]?.description}
@@ -92,7 +93,7 @@ const DisplayLectures = () => {
           </div>
 
           {/* right section for displaying all the lectures of the course */}
-          <ul className="w-[28rem] h-[350px] p-2 rounded-lg shadow-[0_0_10px_black] flex flex-col">
+          <ul className="w-[28rem] h-[375px] p-2 rounded-lg shadow-[0_0_10px_black] flex flex-col">
             <li className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
               <p>Lectures List</p>
               {role === "ADMIN" && (

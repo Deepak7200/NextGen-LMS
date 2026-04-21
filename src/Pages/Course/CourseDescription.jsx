@@ -19,7 +19,7 @@ const CourseDescription = () => {
             {/* wrapper for course description */}
             <div className="min-h-[90vh] pt-12 px-20 flex flex-col items-center justify-center text-white">
                 {/* displaying the course details */}
-                <div className="grid grid-cols-2 gap-10 py-10 relative">
+                <div className="grid grid-cols-2 gap-10 py-9 relative">
                     {/* creating the left side of description box */}
                     <div className="space-y-5">
                         <img
