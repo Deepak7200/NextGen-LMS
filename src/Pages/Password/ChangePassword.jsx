@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { PiEyeBold, PiEyeClosedBold} from "react-icons/pi";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -93,7 +93,7 @@ const ChangePassword = () => {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-2 top-1/2 -translate-y-1/2"
               >
-                {showPassword ? <PiEyeBold /> : <PiEyeClosedBold />}
+                {showPassword ? <VscEye /> : <VscEyeClosed />}
               </button>}
             </div>
           </div>
@@ -118,7 +118,7 @@ const ChangePassword = () => {
                 onClick={() => setShowPassword2(!showPassword2)}
                 className="absolute right-2 top-1/2 -translate-y-1/2"
               >
-                {showPassword2 ? <PiEyeBold /> : <PiEyeClosedBold />}
+                {showPassword2 ? <VscEye /> : <VscEyeClosed />}
               </button>}
             </div>
           </div>
