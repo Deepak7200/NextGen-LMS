@@ -45,6 +45,7 @@ git clone https://github.com/Deepak7200/LMS-FrontEnd
 cd LMS-FrontEnd
 npm install
 npm start
+```
 
 ## 🤝 Contributing
 
