@@ -1,6 +1,8 @@
 // CSS imports
 import './index.css'
 
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 // Library imports
 import { createRoot } from 'react-dom/client'
 import { Toaster } from 'react-hot-toast'
