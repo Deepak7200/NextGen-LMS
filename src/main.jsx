@@ -18,6 +18,8 @@ createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <App />
             <Toaster/>
+            <Analytics />
+            <SpeedInsights />
         </BrowserRouter>
     </Provider>
 )
