@@ -50,7 +50,7 @@ const EditProfile = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // checking for the empty field
+    // checking if empty field
     // if (!data.fullName || !data.avatar) {
     //   toast.error("All fields are mandatory");
     //   return;
