@@ -39,6 +39,14 @@ const ChangePassword = () => {
       return;
     }
 
+    // Password Change restriction in demo accounts
+    if(userPassword.oldPassword=="#123Admin" || userPassword.oldPassword=="#123User"){
+      toast("Password updates are restricted for demo accounts", {
+        icon: "⚠️"
+      });
+      return;
+    }
+
     // validating the password using regex
     if (
       !userPassword.newPassword.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/)

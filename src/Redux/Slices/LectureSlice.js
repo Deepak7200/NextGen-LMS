@@ -70,15 +70,10 @@ export const addCourseLecture = createAsyncThunk( "/course/lecture/add", async (
 // });
 
 export const deleteCourseLecture = createAsyncThunk( "/course/lecture/delete", async () => {
-    try {
-      toast("Deletion restricted in demo mode!", {
-        icon: "⚠️"
-      });
-      return;
-    } 
-    catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
+  toast("Deletion restricted in demo mode!", {
+    icon: "⚠️"
+  });
+  return;
 });
 
 const lectureSlice = createSlice({
