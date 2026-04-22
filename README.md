@@ -42,7 +42,7 @@ https://www.deepaklms.online/
 ## 📦 Installation
 ```bash
 git clone https://github.com/Deepak7200/LMS-FrontEnd
-cd LMS-FrontEnd
+cd NextGen-LMS
 npm install
 npm start
 ```
