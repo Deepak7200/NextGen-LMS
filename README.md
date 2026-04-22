@@ -1,4 +1,4 @@
-# 🎓 LMS Frontend
+# 🎓 NextGen LMS
 
 ## 🚀 Features
 - Browse courses
