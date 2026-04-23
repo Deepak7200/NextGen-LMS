@@ -1,10 +1,40 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 import HomePageImage from "../Assets/Images/homePageMainImage.png"
 import HomeLayout from "../Layouts/HomeLayout";
+import { login } from "../Redux/Slices/Authorization";
 
 function HomePage() {
+    const dispatch = useDispatch();
+  const navigate = useNavigate();
+    
+    const handleDemoLogin = async (role) => {
+        try {
+            let credentials;
+
+            if (role === "admin") {
+                credentials = {
+                email: "admin@mail.in",
+                password: "#123Admin",
+                };
+            }
+
+            if (role === "user") {
+                credentials = {
+                email: "user@mail.in",
+                password: "#123User",
+                };
+            }
+
+            await dispatch(login(credentials)).unwrap();
+            navigate("/");
+        } 
+        catch (err) {
+            console.error(err);
+        }
+    }
+    
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
     return(
         <HomeLayout>
@@ -23,18 +53,44 @@ function HomePage() {
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td className="p-1 rounded-sm bg-blue-500"> Demo Accounts </td>
+                                    <td className="px-2 py-1 rounded-sm bg-blue-500 font-semibold">Demo Access</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td> admin@mail.in </td>
+                                    <td> Login as Admin </td>
                                     <td></td>
-                                    <td> #123Admin </td>
+                                    <td>
+                                       <button
+                                            className="w-28 px-5 py-2 rounded-md font-semibold text-sm 
+                                            bg-gradient-to-r from-yellow-500 to-yellow-400 
+                                            text-black shadow-md 
+                                            hover:from-yellow-400 hover:to-yellow-300 
+                                            hover:shadow-yellow-500/40 hover:shadow-lg 
+                                            transition-all duration-300"
+                                            type="button"
+                                            onClick={() => handleDemoLogin("admin")}
+                                            >
+                                            Admin
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td> user@mail.in </td>
+                                    <td> Login as User </td>
                                     <td></td>
-                                    <td> #123User </td>
+                                    <td>
+                                        <button
+                                            className="w-28 px-5 py-2 rounded-md font-semibold text-sm 
+                                            bg-gradient-to-r from-blue-600 to-blue-500 
+                                            text-white shadow-md 
+                                            hover:from-blue-500 hover:to-blue-400 
+                                            hover:shadow-blue-500/40 hover:shadow-lg 
+                                            transition-all duration-300"
+                                            type="button"
+                                            onClick={() => handleDemoLogin("user")}
+                                            >
+                                            User
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
