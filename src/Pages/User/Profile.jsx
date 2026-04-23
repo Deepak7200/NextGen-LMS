@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link} from "react-router-dom";
 
+import defaultImage from "../../Assets/Images/defaultProfileImage.jpg";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { getUserData } from "../../Redux/Slices/Authorization";
 import { cancelCourseBundle } from "../../Redux/Slices/RazorpaySlice";
@@ -29,7 +30,7 @@ const Profile = () => {
         <div className="my-10 flex flex-col gap-4 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]">
           <img
             className="w-40 m-auto rounded-full border border-black"
-            src={userData?.avatar?.secure_url}
+            src={userData.avatar.secure_url==="cloudinary url" ? defaultImage : userData?.avatar?.secure_url}
             alt="user profile image"
           />
 
